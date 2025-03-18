@@ -53,16 +53,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projectCIC.wsgi.application'
 
 # Base de datos en Render
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'prueba_funcional'),
-        'USER': os.getenv('DB_USER', 'desarrollador'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'desarrollador58'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME', 'nombre_por_defecto'),
+        'USER': os.getenv('DB_USER', 'usuario'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'contraseña'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '3306'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
 
 # Validación de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
