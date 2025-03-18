@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Gráficos de Datos</title>
+    <link rel="stylesheet" href="{% static 'css/styles_dos.css' %}">
+</head>
+<body>
+    <main class="container">
+        <h1>📊 Gráficos de Datos</h1>
+
+        <section>
+            {% if mensaje %}
+                <p class="message" aria-live="polite">{{ mensaje }}</p>
+            {% else %}
+                <div class="chart-container">
+                    {{ grafico_html|safe }}
+                </div>
+            {% endif %}
+        </section>
+
+        <a href="{% url 'index' %}" class="btn btn-primary">⬅️ Volver al inicio</a>
+    </main>
+</body>
+</html>
